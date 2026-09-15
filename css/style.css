@@ -225,9 +225,13 @@ section{ position:relative; padding:96px 0; }
 }
 .stat-row-2{ grid-template-columns:repeat(2,auto); max-width:420px; gap:56px; }
 
-/* Sobre editorial (2 colunas: 42% foto / 58% conteúdo) */
-.about-editorial{ display:grid; grid-template-columns:42% 1fr; gap:56px; align-items:center; }
-@media (max-width:880px){ .about-editorial{ grid-template-columns:1fr; gap:32px; } }
+/* Sobre editorial (2 colunas: 58% conteúdo / 42% foto, foto à direita) */
+.about-editorial{ display:grid; grid-template-columns:1fr 42%; gap:56px; align-items:center; }
+.about-editorial-media{ order:2; }
+@media (max-width:880px){
+  .about-editorial{ grid-template-columns:1fr; gap:32px; }
+  .about-editorial-media{ order:0; }
+}
 .about-editorial-media{
   border-radius:12px; overflow:hidden; aspect-ratio:4/5;
   background:var(--surface); border:1px solid var(--border-soft);
