@@ -207,6 +207,7 @@ section{ position:relative; padding:96px 0; }
   padding:18px 20px; font-family:'Poppins',sans-serif; font-size:.9rem; color:var(--text-dim);
 }
 @media (max-width:900px){ .photo-grid{ grid-template-columns:1fr; max-width:420px; margin-left:auto; margin-right:auto; } }
+.photo-grid-single{ grid-template-columns:1fr; max-width:360px; margin-left:auto; margin-right:auto; }
 
 .stat-row{ display:flex; gap:40px; margin-top:36px; flex-wrap:wrap; }
 .stat{ min-width:110px; }
@@ -216,11 +217,12 @@ section{ position:relative; padding:96px 0; }
 /* Perfil de clientes / vídeo section */
 .profile-section{
   position:relative; border-radius:var(--radius); overflow:hidden; padding:110px 0; text-align:center;
-  isolation:isolate;
+  isolation:isolate; background:var(--gold-deep);
 }
-.profile-section video{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; z-index:-2; opacity:.28; }
-.profile-section::before{ content:""; position:absolute; inset:0; z-index:-1; background:linear-gradient(180deg, #000 0%, rgba(0,0,0,.75) 100%); }
-.profile-section h2{ font-size:clamp(1.6rem,3.6vw,2.4rem); max-width:22ch; margin:0 auto; }
+.profile-section h2{ font-size:clamp(1.6rem,3.6vw,2.4rem); max-width:22ch; margin:0 auto; color:#fff; }
+.profile-section .eyebrow{ color:#fff; }
+.profile-section .eyebrow::before{ background:#fff; }
+.profile-section p{ color:rgba(255,255,255,.85); }
 
 /* Services */
 .services-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:26px; margin-top:56px; }
