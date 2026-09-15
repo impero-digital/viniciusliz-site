@@ -173,14 +173,13 @@ section{ position:relative; padding:96px 0; }
 
 /* Exclusividade banner */
 .exclusive{
-  text-align:center; padding:130px 0; border-top:1px solid var(--border-soft); border-bottom:1px solid var(--border-soft);
+  text-align:center; border-top:1px solid var(--border-soft); border-bottom:1px solid var(--border-soft);
   background:linear-gradient(180deg, transparent, rgba(229,232,225,.04), transparent);
 }
 .exclusive .eyebrow{ font-size:.8rem; font-weight:700; color:var(--text-dim); }
 .exclusive .eyebrow::before{ background:var(--text-dim); }
 .exclusive h2{ font-size:clamp(2.4rem,5.5vw,4.5rem); max-width:900px; margin:0 auto; line-height:1.1; }
 @media (max-width:768px){
-  .exclusive{ padding:64px 0; }
   .exclusive h2{ font-size:clamp(2.4rem,8vw,2.75rem); }
 }
 
@@ -350,11 +349,12 @@ footer.site-footer{ padding-top:80px; border-top:1px solid var(--border-soft); }
 .footer-brand p{ font-size:.9rem; max-width:32ch; }
 .social-row{ display:flex; gap:12px; margin-top:20px; }
 .social-row a{
-  width:38px; height:38px; border-radius:50%; border:1px solid var(--border-soft);
-  display:flex; align-items:center; justify-content:center; transition:all .25s; color:var(--text-dim);
+  width:38px; height:38px; border-radius:50%; border:1px solid transparent;
+  display:flex; align-items:center; justify-content:center; transition:all .25s;
+  background:#ffffff; color:#000000;
 }
 .social-row a svg{ width:17px; height:17px; }
-.social-row a:hover{ border-color:var(--gold); color:var(--gold); }
+.social-row a:hover{ background:var(--gold); transform:translateY(-2px); }
 .footer-bottom{
   border-top:1px solid var(--border-soft); padding:26px 0; display:flex; justify-content:space-between;
   flex-wrap:wrap; gap:14px; font-size:.82rem; color:var(--text-mute);
