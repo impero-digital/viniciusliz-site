@@ -256,7 +256,6 @@ section{ position:relative; padding:96px 0; }
   padding:34px 28px; transition:transform .35s var(--ease), border-color .35s;
 }
 .service-card:hover{ transform:translateY(-6px); border-color:var(--border); }
-.service-card.featured{ border-color:var(--gold-deep); box-shadow:0 0 0 1px var(--gold-deep) inset; }
 .service-icon{
   width:52px; height:52px; border-radius:14px; background:var(--gold-gradient-soft);
   display:flex; align-items:center; justify-content:center; margin-bottom:20px; color:var(--gold); font-size:1.4rem;
