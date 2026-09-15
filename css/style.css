@@ -1,6 +1,5 @@
 /* ============================================================
-   Vinícius Liz — LZ Marketing Management & Agência
-   Design system: preto + dourado (paleta imperodigital.com.br)
+   Vinícius Liz — Design system: preto + paleta Jenipapo/Latte/Smoke/Beige
    ============================================================ */
 
 :root{
@@ -8,26 +7,34 @@
   --bg-soft:       #0a0a0a;
   --surface:       #131313;
   --surface-2:     #1c1c1c;
-  --border:        rgba(240,206,101,0.16);
+  --border:        rgba(229,232,225,0.16);
   --border-soft:   rgba(255,255,255,0.08);
 
-  --gold:          #f0ce65;
-  --gold-soft:     #d9b95a;
-  --bronze:        #b8ac97;
-  --bronze-dark:   #80744e;
-  --gold-deep:     #6b5e34;
+  --gold:          #e5e8e1; /* Beige */
+  --gold-soft:     #c2c4bc; /* Smoke */
+  --bronze:        #aca694; /* Latte */
+  --bronze-dark:   #81724e; /* Jenipapo */
+  --gold-deep:     #81724e; /* Jenipapo */
 
   --text:          #ffffff;
   --text-dim:      #cfd0cc;
   --text-mute:     #8a8a86;
 
-  --gold-gradient: linear-gradient(120deg, #6b5e34 0%, #f0ce65 45%, #fbe7ad 60%, #b8ac97 100%);
-  --gold-gradient-soft: linear-gradient(135deg, rgba(240,206,101,0.16), rgba(184,172,151,0.05));
+  --gold-gradient: linear-gradient(120deg, #81724e 0%, #e5e8e1 50%, #c2c4bc 100%);
+  --gold-gradient-soft: linear-gradient(135deg, rgba(229,232,225,0.16), rgba(172,166,148,0.05));
 
   --radius: 18px;
   --radius-sm: 10px;
   --container: 1180px;
   --ease: cubic-bezier(.16,.84,.44,1);
+}
+
+@font-face{
+  font-family:'Collingar';
+  src: url('/assets/uploads/2025/04/Collingar-Italic.woff2') format('woff2'),
+       url('/assets/uploads/2025/04/Collingar-Italic.woff') format('woff'),
+       url('/assets/uploads/2025/04/Collingar-Italic.ttf') format('truetype');
+  font-weight:400; font-style:italic; font-display:swap;
 }
 
 *,*::before,*::after{ box-sizing:border-box; }
@@ -79,7 +86,7 @@ section{ position:relative; padding:96px 0; }
   white-space:nowrap;
 }
 .btn-gold{ background:var(--gold-gradient); color:#161105; }
-.btn-gold:hover{ transform:translateY(-2px); box-shadow:0 14px 30px -10px rgba(240,206,101,.45); }
+.btn-gold:hover{ transform:translateY(-2px); box-shadow:0 14px 30px -10px rgba(229,232,225,.45); }
 .btn-outline{ border-color:var(--border); color:var(--text); background:transparent; }
 .btn-outline:hover{ border-color:var(--gold); color:var(--gold); }
 
@@ -93,11 +100,22 @@ section{ position:relative; padding:96px 0; }
   transition:background .3s;
 }
 .site-header .container{ display:flex; align-items:center; justify-content:space-between; gap:24px; }
-.brand{ display:flex; align-items:center; gap:10px; }
-.brand img{ height:30px; width:auto; }
-.brand-text{ font-family:'Poppins',sans-serif; font-weight:700; font-size:.8rem; letter-spacing:.06em; color:var(--text); line-height:1.15; }
-.brand-text em{ display:block; font-style:normal; font-weight:500; font-size:.62rem; letter-spacing:.08em; text-transform:uppercase; color:var(--bronze); }
-@media (max-width:400px){ .brand-text em{ display:none; } }
+.brand{ display:flex; align-items:baseline; gap:11px; }
+.brand-script{
+  font-family:'Collingar', cursive; font-style:italic; font-size:2.1rem; line-height:1;
+  background:var(--gold-gradient); -webkit-background-clip:text; background-clip:text; color:transparent;
+}
+.brand-sans{ font-family:'Poppins',sans-serif; font-weight:600; font-size:1.05rem; letter-spacing:.06em; color:var(--text); margin-left:2px; }
+.brand-tagline{
+  display:block; font-family:'Poppins',sans-serif; font-weight:500; font-size:.6rem;
+  letter-spacing:.16em; text-transform:uppercase; color:var(--bronze); margin-top:2px;
+}
+@media (max-width:400px){ .brand-script{ font-size:1.6rem; } .brand-sans{ font-size:.9rem; } }
+
+.footer-brand .brand{ margin-bottom:18px; }
+.footer-brand .brand-script{ font-size:2.6rem; }
+.footer-brand .brand{ gap:20px; }
+.footer-brand .brand-sans{ font-size:1.25rem; }
 .nav-links{ display:flex; align-items:center; gap:36px; }
 .nav-links a{
   font-family:'Poppins',sans-serif; font-size:.9rem; font-weight:500; color:var(--text-dim);
@@ -136,7 +154,7 @@ section{ position:relative; padding:96px 0; }
 }
 .hero::after{
   content:""; position:absolute; inset:0; z-index:1;
-  background:radial-gradient(ellipse at 30% 20%, rgba(240,206,101,.10), transparent 55%),
+  background:radial-gradient(ellipse at 30% 20%, rgba(229,232,225,.10), transparent 55%),
              linear-gradient(180deg, rgba(0,0,0,.35) 0%, rgba(0,0,0,.85) 75%, #000 100%);
 }
 .hero .container{ position:relative; z-index:2; }
@@ -156,7 +174,7 @@ section{ position:relative; padding:96px 0; }
 /* Exclusividade banner */
 .exclusive{
   text-align:center; padding:70px 0; border-top:1px solid var(--border-soft); border-bottom:1px solid var(--border-soft);
-  background:linear-gradient(180deg, transparent, rgba(240,206,101,.04), transparent);
+  background:linear-gradient(180deg, transparent, rgba(229,232,225,.04), transparent);
 }
 .exclusive h2{ font-size:clamp(1.6rem,4vw,2.6rem); max-width:20ch; margin:0 auto; }
 
@@ -168,7 +186,7 @@ section{ position:relative; padding:96px 0; }
   aspect-ratio:4/5; background:var(--surface);
   border:1px solid var(--border);
 }
-.about-media video{ width:100%; height:100%; object-fit:cover; }
+.about-media video, .about-media img{ width:100%; height:100%; object-fit:cover; }
 .play-badge{
   position:absolute; left:50%; top:50%; transform:translate(-50%,-50%);
   width:74px; height:74px; border-radius:50%; border:1px solid rgba(255,255,255,.6);
@@ -176,6 +194,15 @@ section{ position:relative; padding:96px 0; }
   background:rgba(0,0,0,.25); backdrop-filter:blur(4px);
 }
 .about h2{ font-size:clamp(1.8rem,3.4vw,2.6rem); }
+
+.about-gallery{
+  display:grid; grid-template-columns:1fr 1fr; gap:24px; margin-top:48px;
+}
+.about-gallery img{
+  width:100%; aspect-ratio:4/5; object-fit:cover; border-radius:var(--radius);
+  border:1px solid var(--border);
+}
+@media (max-width:560px){ .about-gallery{ grid-template-columns:1fr 1fr; gap:14px; } }
 .stat-row{ display:flex; gap:40px; margin-top:36px; flex-wrap:wrap; }
 .stat{ min-width:110px; }
 .stat .num{ font-family:'Poppins',sans-serif; font-size:2.4rem; font-weight:700; color:var(--gold); line-height:1; }

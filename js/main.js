@@ -1,4 +1,4 @@
-// LZ Agência / Vinícius Liz — comportamentos do site (vanilla JS, sem dependências)
+// Vinícius Liz — comportamentos do site (vanilla JS, sem dependências)
 (function(){
   'use strict';
 
