@@ -90,39 +90,78 @@
     skillFills.forEach(function(el){ skillObserver.observe(el); });
   }
 
-  /* Testimonial slider */
-  var slider = document.querySelector('.slider');
-  if (slider) {
-    var slides = Array.prototype.slice.call(slider.querySelectorAll('.slide'));
-    var dotsWrap = slider.querySelector('.slider-dots');
+  /* Testimonial carousel: shows 3 cards per view on desktop, 1 on mobile */
+  var viewport = document.querySelector('.t-viewport');
+  if (viewport) {
+    var track = viewport.querySelector('.t-track');
+    var cards = Array.prototype.slice.call(track.querySelectorAll('.t-card'));
+    var dotsWrap = document.querySelector('.slider-dots');
+    var btnNext = document.querySelector('[data-slider-next]');
+    var btnPrev = document.querySelector('[data-slider-prev]');
     var current = 0;
     var timer;
+    var maxIndex = 0;
 
-    slides.forEach(function(_, i){
-      var dot = document.createElement('span');
-      if (i === 0) dot.classList.add('active');
-      dot.addEventListener('click', function(){ goTo(i); resetTimer(); });
-      dotsWrap && dotsWrap.appendChild(dot);
-    });
-    var dots = dotsWrap ? Array.prototype.slice.call(dotsWrap.children) : [];
+    function visibleCount(){
+      return window.innerWidth <= 900 ? 1 : 3;
+    }
+
+    function step(){
+      var gap = parseFloat(getComputedStyle(track).gap || 28);
+      var cardWidth = cards[0].getBoundingClientRect().width;
+      return cardWidth + gap;
+    }
+
+    function buildDots(){
+      dotsWrap.innerHTML = '';
+      var dots = [];
+      for (var i = 0; i <= maxIndex; i++) {
+        var dot = document.createElement('span');
+        if (i === current) dot.classList.add('active');
+        (function(idx){
+          dot.addEventListener('click', function(){ goTo(idx); resetTimer(); });
+        })(i);
+        dotsWrap.appendChild(dot);
+        dots.push(dot);
+      }
+      return dots;
+    }
+
+    var dots = [];
+
+    function refresh(){
+      maxIndex = Math.max(0, cards.length - visibleCount());
+      current = Math.min(current, maxIndex);
+      dots = buildDots();
+      position();
+    }
+
+    function position(){
+      track.style.transform = 'translateX(-' + (current * step()) + 'px)';
+      dots.forEach(function(d, i){ d.classList.toggle('active', i === current); });
+    }
 
     function goTo(i){
-      slides[current].classList.remove('active');
-      dots[current] && dots[current].classList.remove('active');
-      current = (i + slides.length) % slides.length;
-      slides[current].classList.add('active');
-      dots[current] && dots[current].classList.add('active');
+      current = Math.max(0, Math.min(i, maxIndex));
+      position();
     }
-    function next(){ goTo(current + 1); }
-    function prev(){ goTo(current - 1); }
+    function next(){ goTo(current >= maxIndex ? 0 : current + 1); }
+    function prev(){ goTo(current <= 0 ? maxIndex : current - 1); }
     function resetTimer(){
       clearInterval(timer);
       timer = setInterval(next, 6000);
     }
-    var btnNext = slider.parentElement.querySelector('[data-slider-next]');
-    var btnPrev = slider.parentElement.querySelector('[data-slider-prev]');
+
     btnNext && btnNext.addEventListener('click', function(){ next(); resetTimer(); });
     btnPrev && btnPrev.addEventListener('click', function(){ prev(); resetTimer(); });
+
+    var resizeTimer;
+    window.addEventListener('resize', function(){
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(refresh, 150);
+    });
+
+    refresh();
     resetTimer();
   }
 

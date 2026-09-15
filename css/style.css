@@ -195,14 +195,19 @@ section{ position:relative; padding:96px 0; }
 }
 .about h2{ font-size:clamp(1.8rem,3.4vw,2.6rem); }
 
-.about-gallery{
-  display:grid; grid-template-columns:1fr 1fr; gap:24px; margin-top:48px;
+/* Presença / galeria de fotos */
+.photo-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:28px; margin-top:56px; }
+.photo-card{
+  background:var(--surface); border:1px solid var(--border-soft); border-radius:var(--radius);
+  overflow:hidden; transition:transform .35s var(--ease), border-color .35s;
 }
-.about-gallery img{
-  width:100%; aspect-ratio:4/5; object-fit:cover; border-radius:var(--radius);
-  border:1px solid var(--border);
+.photo-card:hover{ transform:translateY(-6px); border-color:var(--border); }
+.photo-card img{ width:100%; aspect-ratio:4/5; object-fit:cover; display:block; }
+.photo-card .photo-caption{
+  padding:18px 20px; font-family:'Poppins',sans-serif; font-size:.9rem; color:var(--text-dim);
 }
-@media (max-width:560px){ .about-gallery{ grid-template-columns:1fr 1fr; gap:14px; } }
+@media (max-width:900px){ .photo-grid{ grid-template-columns:1fr; max-width:420px; margin-left:auto; margin-right:auto; } }
+
 .stat-row{ display:flex; gap:40px; margin-top:36px; flex-wrap:wrap; }
 .stat{ min-width:110px; }
 .stat .num{ font-family:'Poppins',sans-serif; font-size:2.4rem; font-weight:700; color:var(--gold); line-height:1; }
@@ -246,17 +251,22 @@ section{ position:relative; padding:96px 0; }
 /* Testimonials */
 .testimonials{ text-align:center; }
 .testimonials .section-head{ max-width:640px; margin:0 auto 56px; }
-.slider{ position:relative; max-width:760px; margin:0 auto; }
-.slide{ display:none; }
-.slide.active{ display:block; animation:fadeIn .6s var(--ease); }
-@keyframes fadeIn{ from{ opacity:0; transform:translateY(12px);} to{opacity:1; transform:none;} }
-.slide-quote{
-  font-family:'Poppins',sans-serif; font-size:1.25rem; color:var(--text); line-height:1.55;
-  max-width:56ch; margin:0 auto 28px;
+
+/* Testimonial cards (3 per view on desktop, matching original layout) */
+.t-viewport{ overflow:hidden; }
+.t-track{ display:flex; gap:28px; transition:transform .5s var(--ease); }
+.t-card{
+  flex:0 0 calc((100% - 56px) / 3);
+  background:var(--surface); border:1px solid var(--border-soft); border-radius:var(--radius);
+  padding:34px 26px; display:flex; flex-direction:column; align-items:center; gap:18px; text-align:center;
 }
-.slide-person{ display:flex; align-items:center; justify-content:center; gap:14px; }
-.slide-person img{ width:54px; height:54px; border-radius:50%; object-fit:cover; border:1px solid var(--border); }
-.slide-person .name{ font-family:'Poppins',sans-serif; font-weight:600; }
+.t-card img{ width:64px; height:64px; border-radius:50%; object-fit:cover; border:1px solid var(--border); }
+.t-quote{
+  font-family:'Poppins',sans-serif; font-size:.96rem; color:var(--text-dim); line-height:1.6;
+  margin:0; flex:1;
+}
+.t-name{ font-family:'Poppins',sans-serif; font-weight:600; color:var(--text); font-size:.9rem; }
+@media (max-width:900px){ .t-card{ flex:0 0 100%; } }
 .slider-nav{ display:flex; justify-content:center; gap:14px; margin-top:40px; }
 .slider-nav button{
   width:42px; height:42px; border-radius:50%; border:1px solid var(--border-soft); background:transparent; color:var(--text);
@@ -269,9 +279,10 @@ section{ position:relative; padding:96px 0; }
 
 /* Logo marquee */
 .logo-marquee{ overflow:hidden; -webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent); }
-.logo-track{ display:flex; align-items:center; gap:64px; width:max-content; animation:scrollX 38s linear infinite; }
-.logo-track img{ height:34px; width:auto; opacity:.65; filter:grayscale(1) brightness(2); transition:opacity .25s; }
+.logo-track{ display:flex; align-items:center; gap:88px; width:max-content; animation:scrollX 38s linear infinite; }
+.logo-track img{ height:76px; width:auto; opacity:.75; filter:grayscale(1) brightness(2); transition:opacity .25s; }
 .logo-track img:hover{ opacity:1; }
+@media (max-width:768px){ .logo-track img{ height:56px; } .logo-track{ gap:56px; } }
 @keyframes scrollX{ from{ transform:translateX(0);} to{ transform:translateX(-50%);} }
 
 /* Blog */
