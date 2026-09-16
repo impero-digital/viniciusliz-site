@@ -267,9 +267,9 @@ section{ position:relative; padding:96px 0; }
 
 /* Team / Dream Team */
 .team-grid{
-  display:grid; grid-template-columns:repeat(5,1fr); gap:28px 22px; margin-top:56px;
+  display:flex; flex-wrap:wrap; justify-content:center; gap:28px 22px; margin-top:56px;
 }
-.team-card{ text-align:center; }
+.team-card{ text-align:center; width:calc((100% - 22px*4)/5); }
 .team-photo{
   position:relative; aspect-ratio:4/5; border-radius:var(--radius); overflow:hidden;
   background:var(--surface); border:1px solid var(--border-soft);
@@ -291,9 +291,9 @@ section{ position:relative; padding:96px 0; }
   font-size:.76rem; font-weight:600; color:var(--gold); text-transform:uppercase;
   letter-spacing:.06em; margin-top:4px;
 }
-.team-lead{ grid-column:1 / -1; }
-@media (max-width:980px){ .team-grid{ grid-template-columns:repeat(3,1fr); } }
-@media (max-width:620px){ .team-grid{ grid-template-columns:repeat(2,1fr); gap:24px 16px; } }
+.team-lead{ width:100%; }
+@media (max-width:980px){ .team-card{ width:calc((100% - 22px*2)/3); } }
+@media (max-width:620px){ .team-grid{ gap:24px 16px; } .team-card{ width:calc((100% - 16px)/2); } }
 
 /* Skills / progress */
 .skills-wrap{ display:grid; grid-template-columns:1fr 1fr; gap:64px; align-items:center; }
