@@ -4,10 +4,12 @@
     'card-analise': 'LINK_ANALISE_INSTAGRAM',
     'card-metodo': 'LINK_METODO_IMPERO',
     'card-assessoria': 'LINK_ASSESSORIA',
+    'card-whatsapp': 'LINK_WHATSAPP',
     'link-portfolio': 'LINK_PORTFOLIO',
     'link-comunidade': 'LINK_COMUNIDADE',
     'link-whatsapp': 'LINK_WHATSAPP',
     'link-instagram': 'LINK_INSTAGRAM',
+    'link-facebook': 'LINK_FACEBOOK',
     'link-youtube': 'LINK_YOUTUBE',
   };
 
