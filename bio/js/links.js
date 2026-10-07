@@ -28,8 +28,8 @@ const BIO_LINKS = {
   // Instagram profissional
   LINK_INSTAGRAM: "https://www.instagram.com/viniciusliz.mkt/",
 
-  // TODO: endereço oficial da página no Facebook (ainda não identificado)
-  LINK_FACEBOOK: "#",
+  // Página oficial no Facebook
+  LINK_FACEBOOK: "https://www.facebook.com/profile.php?id=61577204451872",
 
   // Canal oficial no YouTube
   LINK_YOUTUBE: "https://www.youtube.com/@ImperoDigital",
