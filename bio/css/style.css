@@ -82,8 +82,8 @@ a{color:inherit;text-decoration:none;}
   max-width:78%;
 }
 @media (max-width:679px){
-  .hero-photo{ object-position:28% 14%; }
-  .hero-content{ max-width:66%; }
+  .hero-photo{ width:34%; object-position:63% 50%; }
+  .hero-content{ max-width:65%; }
 }
 .hero-tags{
   display:flex; flex-direction:column;
