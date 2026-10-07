@@ -403,8 +403,8 @@ footer hr{
 @media (max-width:679px){
   .hero{ padding-top:24px; min-height:600px; }
   .hero-photo{ width:50%; object-position:57% 50%; }
-  .hero-content{ max-width:47%; gap:10px; }
-  .hero-name{ font-size:clamp(15px,6vw,24px); }
+  .hero-content{ max-width:56%; gap:10px; }
+  .hero-name{ font-size:30px; }
   .hero-role{ font-size:10px; letter-spacing:.14em; }
   .hero-desc{ font-size:11.5px; line-height:1.5; max-width:none; }
   .cards{ gap:8px; padding-bottom:18px; }
