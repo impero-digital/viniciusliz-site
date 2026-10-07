@@ -14,11 +14,11 @@ const BIO_LINKS = {
   // Card "Conheça minha Assessoria de Marketing" — site institucional
   LINK_ASSESSORIA: "https://viniciusliz.com.br/",
 
-  // Portfólio / apresentação profissional (usando o site institucional)
-  LINK_PORTFOLIO: "https://viniciusliz.com.br/",
+  // Botão "Conheça meu trabalho" (Sobre Mim)
+  LINK_PORTFOLIO: "https://www.viniciusliz.com.br/viniciusliz/",
 
-  // TODO: endereço oficial da comunidade Ímpero Digital (grupo, área de membros, etc.)
-  LINK_COMUNIDADE: "#",
+  // Comunidade Ímpero Digital (grupo de WhatsApp)
+  LINK_COMUNIDADE: "https://chat.whatsapp.com/KMtYZJ1CRXN7hruXidV4hR",
 
   // WhatsApp profissional (contato geral e card "Fale comigo pelo WhatsApp")
   LINK_WHATSAPP:
