@@ -31,6 +31,6 @@ const BIO_LINKS = {
   // TODO: endereço oficial da página no Facebook (ainda não identificado)
   LINK_FACEBOOK: "#",
 
-  // TODO: canal oficial no YouTube (ainda não identificado no site institucional)
-  LINK_YOUTUBE: "#",
+  // Canal oficial no YouTube
+  LINK_YOUTUBE: "https://www.youtube.com/@ImperoDigital",
 };
